@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>MainWindowTitle</title>
+</head>
+<body>
+    <h1 class="display-2 w-100 text-center bg-dark text-light p-4">This is my application</h1>
+    <div class="container bg-dark text-light text-center p-2 " > quis hic dolorum sint itaque accusamus aut optio laborum odit mollitia perspiciatis amet dolor, accusantium voluptatem rerum. Non esse nisi optio!</div>
+    <div class="container m-4 text-end">
+        <input class="form-control" type="text" placeholder="Enter Data Here" aria-label="default input example" id="input">
+        <button class="btn btn-primary mt-2" onclick="sendData()">Send</button>
+    </div>
+</body>
+</html>
+
+<script>
+    const {ipcRenderer} = require('electron');
+    function sendData(){
+        Element = document.getElementById('input');
+        var data = Element.value;
+        // if data is empty dont send it
+        if(data == ''){
+            //alert user
+            alert('Please Enter Data');
+            return;
+        }
+        ipcRenderer.send('data', data);
+        Element.value = '';
+        //alert data sent
+        alert('Data sent');
+    }
+    ipcRenderer.on('respond_data', (event, data) => {
+        alert("Data received " + data);
+    } );
+</script>
