@@ -1,8 +1,18 @@
 
     const list = document.getElementById('itemslist');
+    Element = document.getElementById('input');
     const {ipcRenderer} = require('electron');
+
+    //when enter is pressed send data
+    Element.onkeydown = function(e){
+    if(e.keyCode == 13){
+        sendData();
+    }
+    }
+            
+
     function sendData(){
-        Element = document.getElementById('input');
+       
         var data = Element.value;
         // if data is empty dont send it
         if(data == ''){
