@@ -1,0 +1,22 @@
+{
+  "name": "electron-ipc-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PJKloppers/electron-ipc-example.git"
+  },
+  "author": "Paul Kloppers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PJKloppers/electron-ipc-example/issues"
+  },
+  "homepage": "https://github.com/PJKloppers/electron-ipc-example#readme",
+  "dependencies": {
+    "electron": "^20.0.1"
+  }
+}
